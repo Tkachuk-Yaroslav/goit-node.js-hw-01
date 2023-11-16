@@ -8,10 +8,14 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     case "read":
       const allContacts = await contacts.listContacts();
       return console.log(allContacts);
+    case "getById":
+      const contact = await contacts.getContactById(id);
+      return console.log(contact);
 
     default:
       return console.log("Uncknown action!");
   }
 };
 
-invokeAction({ action: "read" });
+// invokeAction({ action: "read" });
+invokeAction({ action: "getById", id: "AeHIrLTr6JkxGE6SN-0Rw" });

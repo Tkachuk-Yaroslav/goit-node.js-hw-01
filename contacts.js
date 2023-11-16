@@ -13,7 +13,10 @@ async function listContacts() {
   // ...твій код. Повертає масив контактів.
 }
 
-function getContactById(contactId) {
+async function getContactById(contactId) {
+  const contacts = await listContacts();
+  const contact = contacts.find((item) => item.id === contactId);
+  return contact || null;
   // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
 }
 
@@ -27,7 +30,5 @@ function addContact(name, email, phone) {
 
 module.exports = {
   listContacts,
-  //   getContactById,
-  //   removeContact,
-  //   addContact,
+  getContactById,
 };
