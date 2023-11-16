@@ -2,6 +2,18 @@
 // console.log("first");
 
 const contacts = require("./contacts");
+const { program } = require("commander");
+
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
+
+program.parse();
+const options = program.opts();
+console.log(options);
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
@@ -21,9 +33,11 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       const removedContact = await contacts.removeContact(id);
       return console.log(removedContact);
     default:
-      return console.log("Uncknown action!");
+      return console.warn("\x1B[31m Unknown action type!");
   }
 };
+
+invokeAction(options);
 
 // invokeAction({ action: "read" });
 // invokeAction({ action: "getById", id: "AeHIrLTr6JkxGE6SN-0Rw" });
@@ -40,4 +54,4 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 //   email: "example@gmail.com",
 //   phone: "0978882546",
 // });
-invokeAction({ action: "removeById", id: "N0OurJ5_g5RsMAe8Pj5Hv" });
+// invokeAction({ action: "removeById", id: "N0OurJ5_g5RsMAe8Pj5Hv" });
