@@ -17,7 +17,9 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     case "updateById":
       const updatedBook = await contacts.updateContact(id, name, email, phone);
       return console.log(updatedBook);
-
+    case "removeById":
+      const removedContact = await contacts.removeContact(id);
+      return console.log(removedContact);
     default:
       return console.log("Uncknown action!");
   }
@@ -31,10 +33,11 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 //   email: "example@gmail.com",
 //   phone: "000000000",
 // });
-invokeAction({
-  action: "updateById",
-  id: "1Tfk9JUNzDfuRKE9FmEO1",
-  name: "You dont know ES6!",
-  email: "example@gmail.com",
-  phone: "0978882546",
-});
+// invokeAction({
+//   action: "updateById",
+//   id: "1Tfk9JUNzDfuRKE9FmEO1",
+//   name: "You dont know ES6!",
+//   email: "example@gmail.com",
+//   phone: "0978882546",
+// });
+invokeAction({ action: "removeById", id: "N0OurJ5_g5RsMAe8Pj5Hv" });
