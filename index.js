@@ -13,7 +13,6 @@ program
 
 program.parse();
 const options = program.opts();
-console.log(options);
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
@@ -38,20 +37,3 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 };
 
 invokeAction(options);
-
-// invokeAction({ action: "read" });
-// invokeAction({ action: "getById", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-// invokeAction({
-//   action: "add",
-//   name: "You dont know ES6!",
-//   email: "example@gmail.com",
-//   phone: "000000000",
-// });
-// invokeAction({
-//   action: "updateById",
-//   id: "1Tfk9JUNzDfuRKE9FmEO1",
-//   name: "You dont know ES6!",
-//   email: "example@gmail.com",
-//   phone: "0978882546",
-// });
-// invokeAction({ action: "removeById", id: "N0OurJ5_g5RsMAe8Pj5Hv" });
